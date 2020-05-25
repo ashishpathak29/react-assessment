@@ -6,7 +6,7 @@ import Loading from '../loading/Loading';
 import Config from '../../utils/config';
 import storage from '../../utils/storage';
 
-const API_BASE = 'http://hn.algolia.com/api/v1/';
+ const API_BASE = './data.json';
 const { CancelToken } = axios;
 const source = CancelToken.source();
 
@@ -47,7 +47,7 @@ class Feed extends React.Component {
       }
     }
 
-    const url = `${API_BASE}search_by_date?tags=front_page`;
+    const url = `./data.json`;
     this.getFeed(url);
   }
 
@@ -62,12 +62,13 @@ class Feed extends React.Component {
    * Fetching feed
    * @param {*} url
   */
-  getFeed(url) {
-    axios.get(url, {
-      cancelToken: source.token,
-      "Access-Control-Allow-Origin": "*"
-    })
+ getFeed(url) {
+  axios.get(url, {
+    cancelToken: source.token,
+    "Access-Control-Allow-Origin": "*"
+  })
       .then((res) => {
+        debugger
         if (res.status === 200) {
           const { data } = res;
           const { hits, page } = data;
