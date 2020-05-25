@@ -1,0 +1,47 @@
+header {
+    position: fixed;
+    width: 1024px;
+    top: 0;
+
+    .header-title {
+        display: flex;
+        align-items: center;
+        padding: 6px 10px;
+        background: $theme_color;
+        color: $white_color;
+        box-sizing: border-box;
+      
+    }
+
+    .header-icon {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border: 1px solid;
+        width: 20px;
+        height: 20px;
+        font-size: 12px;
+        font-weight: bold;
+    }
+
+    .header-name {
+        display: flex;
+        padding: 0 20px;
+      .newwest{
+            color: #fff;
+            text-decoration: none;
+        }
+        
+        
+        .name-black {
+            padding: 0 10px;
+            border-left: 2px solid;
+            margin: 0 10px;
+            .front{
+                text-decoration: none;
+                color: $black_color;
+            }
+        }
+    }
+
+}

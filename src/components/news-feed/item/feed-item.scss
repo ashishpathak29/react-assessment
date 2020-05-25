@@ -1,0 +1,105 @@
+.feed-item {
+    color: $grey_color;
+    font-size: 12px;
+    padding: 6px 10px;
+    width: 100%;
+    display: flex;
+    box-sizing: border-box;
+
+    .feed-info {
+        width: auto;
+        display: flex;
+
+        .vote-icon {
+            width: 14px;
+            height: 14px;
+            cursor: pointer;
+            padding: 0 8px;
+
+            &.hide-icon {
+                visibility: hidden;
+            }
+        }
+
+        .item-count {
+            width: 50px;
+            display: inline-block;
+            text-align: right;
+            color: #000000;
+            font-size: 14px;
+
+            &.count-type-1 {
+                color:$light_orange_color;
+            }
+
+            &.count-type-2 {
+                color: $theme_color;
+            }
+        }
+    }
+
+    .feed-content {
+        width: 80%;
+        display: flex;
+        align-items: center;
+        flex-wrap: wrap;
+        margin: 0 5px;
+
+        .feed-content-1 {
+            margin-right: 4px;
+
+            .title {
+                color: #000000;
+                font-size: 14px;
+                text-decoration: none;
+                cursor: pointer;
+            }
+
+            .host-name {
+                margin: 0 4px;
+                color:#1117c5;
+            }
+        }
+
+        .author {
+            margin-right: 4px;
+
+            .name {
+                margin-left: 4px;
+                color: $black_color;
+            }
+        }
+
+        .hide-item {
+            margin-left: 4px;
+            cursor: pointer;
+            display: inline-block;
+            outline: none;
+        
+            .text {
+                color: #ad1009;
+                margin: 0 2px;
+            }
+        }
+    }
+
+    &:nth-child(even) {
+        background: $light_grey_color;
+    }
+}
+
+@media screen and (max-width: 800px) {
+    .feed-info {
+        width: 30% !important;
+    }
+    .feed-content {
+        width: 65% !important;
+
+        .feed-content-1 {
+            width: 100%;
+        }
+        .feed-content-2 {
+            width: 100%;
+        }
+    }
+}

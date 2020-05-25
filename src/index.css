@@ -1,0 +1,9 @@
+body {
+  margin: 0 auto;
+  padding: 0;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-family: Verdana, Geneva, sans-serif;
+  background: #f6f7ef;
+  max-width: 1024px;
+}
