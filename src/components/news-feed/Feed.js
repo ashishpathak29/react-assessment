@@ -65,6 +65,7 @@ class Feed extends React.Component {
   getFeed(url) {
     axios.get(url, {
       cancelToken: source.token,
+      "Access-Control-Allow-Origin": "*"
     })
       .then((res) => {
         if (res.status === 200) {
