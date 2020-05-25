@@ -6,7 +6,7 @@ import Loading from '../loading/Loading';
 import Config from '../../utils/config';
 import storage from '../../utils/storage';
 
-const API_BASE = 'http://hn.algolia.com/api/v1/';
+const API_BASE = 'https://hn.algolia.com/api/v1/';
 const { CancelToken } = axios;
 const source = CancelToken.source();
 
