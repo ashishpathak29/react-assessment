@@ -11,17 +11,16 @@ const FeedItem = (props) => {
   const [points, setPoints] = useState(data.points ? data.points : 0);
 
   /**
-   * Sending the callback to parent component
+   * callback to parent component
    */
   const setHide = () => {
     hideItem(data);
   };
 
   /**
-   * Upvote and Downvote functionality manager
+   * points and Downvote manage
    */
   function manageVote() {
-    debugger;
     if (downvote) {
       setPoints(points - 1);
     } else {

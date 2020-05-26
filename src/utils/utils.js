@@ -38,10 +38,6 @@ const getDateDiff = (diff) => {
   return `${Math.round(diff / msPerYear)} years ago`;
 };
 
-/**
- * Changing the color style based on input
- * @param {*} number
- */
 const getColorByRange = (number) => {
   if (number > 50 && number <= 100) return 'count-type-1';
   return 'count-type-2';

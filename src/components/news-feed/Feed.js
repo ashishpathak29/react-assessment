@@ -6,6 +6,16 @@ import Loading from '../loading/Loading';
 import Config from '../../utils/config';
 import storage from '../../utils/storage';
 
+
+
+/**
+ *Here I do the do same thing API url. Get this url and fetch the data. But it's third party library sot it's gives error when i deployed on Heroku Server. The error was Cross-Browser heroku block the api not called. SO I do this onther way getting JSON and store in file and read that file. So now this code is easily deployed on Heroku server.
+ I gave two solution. 
+ 1) we fetch data from third party API with help of axios.
+ 2) Create data.Json and read that file with help of axios.
+
+ * const API_BASE = 'http://hn.algolia.com/api/v1/';
+ */
  const API_BASE = './data.json';
 const { CancelToken } = axios;
 const source = CancelToken.source();
@@ -36,9 +46,7 @@ class Feed extends React.Component {
   */
   componentDidMount() {
     const obj = Storage.loadState();
-    console.log(obj,'object')
     if (obj) {
-      debugger;
       if (obj.hideItems) {
         hideItemsList = obj.hideItems;
       }
@@ -46,7 +54,10 @@ class Feed extends React.Component {
         downvoteItemsList = obj.downvoteItems;
       }
     }
-
+    
+  /**
+   * Read the JSON file
+  */
     const url = `./data.json`;
     this.getFeed(url);
   }
@@ -59,16 +70,15 @@ class Feed extends React.Component {
   }
 
   /**
-   * Fetching feed
-   * @param {*} url
+   * Handling axios and fetch the response
   */
+
  getFeed(url) {
   axios.get(url, {
     cancelToken: source.token,
     "Access-Control-Allow-Origin": "*"
   })
       .then((res) => {
-        debugger
         if (res.status === 200) {
           const { data } = res;
           const { hits, page } = data;
@@ -122,7 +132,7 @@ class Feed extends React.Component {
       }
       this.saveToLocal();
     } else {
-      // TODO CALL API
+      //  called api
     }
   }
 
@@ -154,7 +164,6 @@ class Feed extends React.Component {
  * @param {*} item
 */
   hideItem(item) {
-    debugger
     const { feed, page } = this.state;
     const feedLength = feed.length;
 
@@ -175,7 +184,7 @@ class Feed extends React.Component {
       hideItemsList.push(item.objectID);
       this.saveToLocal();
     } else {
-      // TODO CALL API
+      // console.log('call api')
     }
 
     this.setState({ feed, page, loading: false });

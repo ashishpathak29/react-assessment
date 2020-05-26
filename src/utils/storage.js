@@ -1,5 +1,5 @@
 /**
- * Save data to local store
+ * Save data to local store using
  * @param {*} state
  */
 const saveState = (state) => {
@@ -7,14 +7,10 @@ const saveState = (state) => {
     const serializedState = JSON.stringify(state);
     localStorage.setItem('state', serializedState);
   } catch {
-    // ignore
+    
   }
 };
 
-/**
- * loads data from local store
- * @param {*} state
- */
 const loadState = () => {
   try {
     const serializedState = localStorage.getItem('state');
